@@ -1,0 +1,319 @@
+/* =========================================================
+   [라이트 모드] 토스(Toss) 스타일 (토스 블루: #0064FF)
+   ========================================================= */
+:root {
+  --bg-main: #f2f4f6;             /* 토스 특유의 차분한 라이트 쿨그레이 */
+  --bg-card: #ffffff;             /* 토스풍 순백색 라운디드 카드 */
+  --bg-sub: #f9fafb;              /* 영역 구분용 연한 회색 */
+  --text-main: #191f28;           /* 토스 차콜 고대비 텍스트 */
+  --text-sub: #8b95a1;            /* 부드러운 서브 설명 텍스트 */
+  --primary: #0064FF;             /* 공식 토스 블루 */
+  --primary-hover: #0052cc;
+  --primary-bg: #e8f3ff;
+  --border-color: #e5e8eb;        /* 깔끔하고 얇은 보더 */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  --radius-lg: 24px;              /* 토스 스타일의 넉넉한 둥근 모서리 */
+  --radius-md: 14px;
+  --font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", sans-serif;
+}
+
+/* =========================================================
+   [다크 모드] 넷플릭스(Netflix) 스타일 (넷플릭스 레드: #E50914)
+   ========================================================= */
+[data-theme="dark"] {
+  --bg-main: #141414;             /* 넷플릭스 메인 배경 딥 블랙 */
+  --bg-card: #1f1f1f;             /* 넷플릭스 패널 스타일 어두운 카드 */
+  --bg-sub: #2b2b2b;              /* 서브 영역 다크 테마 */
+  --text-main: #ffffff;           /* 선명한 하얀색 텍스트 */
+  --text-sub: #b3b3b3;            /* 회색 넷플릭스 스타일 서브 텍스트 */
+  --primary: #E50914;             /* 공식 넷플릭스 레드 */
+  --primary-hover: #b81d24;
+  --primary-bg: rgba(229, 9, 20, 0.2);
+  --border-color: #333333;
+  --card-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+}
+
+/* --- 기본 리셋 --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  padding: 28px 24px;
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- 헤더 --- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.theme-toggle {
+  background-color: var(--bg-sub);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* --- 스텝 표시바 --- */
+.steps-indicator {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.pill {
+  flex: 1;
+  height: 5px;
+  background-color: var(--bg-sub);
+  border-radius: 3px;
+}
+
+.pill.active {
+  background-color: var(--primary);
+}
+
+.screen.hidden {
+  display: none !important;
+}
+
+/* --- 히어로 / 메인 텍스트 --- */
+.hero-box {
+  margin: 12px 0 28px 0;
+}
+
+.hero-box .subtitle {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.hero-box h2 {
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+/* --- 버튼 디자인 --- */
+.mode-selection-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--bg-sub);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-action {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--primary-bg);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+/* --- 선택 옵션 그리드 --- */
+.step-header h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.btn-option {
+  padding: 15px 10px;
+  background-color: var(--bg-sub);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-option:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: var(--primary-bg);
+}
+
+/* --- 탭 제어 --- */
+.tabs-header {
+  display: flex;
+  gap: 4px;
+  background-color: var(--bg-sub);
+  padding: 4px;
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  color: var(--text-sub);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* --- 결과 목록 --- */
+.result-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.result-sub-text {
+  font-size: 0.82rem;
+  color: var(--text-sub);
+  margin-top: 4px;
+  margin-bottom: 16px;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background-color: var(--bg-sub);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.result-item-sub {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  font-weight: 400;
+}
+
+/* --- 모달 --- */
+.modal-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--bg-card);
+  padding: 28px 20px;
+  border-radius: var(--radius-lg);
+  text-align: center;
+  width: 82%;
+  border: 1px solid var(--border-color);
+}
+
+.modal-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 8px;
+}
+
+.modal-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+}
